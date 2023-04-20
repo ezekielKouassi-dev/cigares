@@ -1,3 +1,13 @@
+-- creation de la table profile
+create table if not exists profile(
+    id serial not null primary key,
+    code varchar(255) not null,
+    designation varchar(255) not null,
+    dt_creation timestamp without time zone not null,
+    dt_mise_a_jour timestamp without time zone,
+    status varchar(255) not null
+);
+
 -- creation de la table utilisateur
 create table if not exists utilisateur(
     id serial not null primary key,
@@ -8,15 +18,6 @@ create table if not exists utilisateur(
     mot_de_passe varchar(255) not null,
     dt_creation timestamp without time zone not null,
     dt_mise_a_jour timestamp without time zone,
-    status varchar(255) not null
+    status varchar(255) not null,
+    id_profile int references profile(id)
 );
-
--- creation de la table profile
-create table if not exists profile(
-    id serial not null primary key,
-    code varchar(255) not null,
-    designation varchar(255) not null,
-    dt_creation timestamp without time zone not null,
-    dt_mise_a_jour timestamp without time zone,
-    status varchar(255) not null
-)
