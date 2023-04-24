@@ -11,11 +11,30 @@
    my-8
    pt-3
    px-8"
+        [formGroup]="auth"
+        (ngSubmit)="signIn()"
   >
+    <fa-icon
+      [icon]="faUser"
+      size="2x"
+      style="color: #E5AA70;"
+    ></fa-icon>
     <p class="heading">CONNEXION</p>
-    <input placeholder="Identifiant" class="input" type="text">
-    <input placeholder="Mot de passe" class="input" type="password">
-    <button class="btn">Connexion</button>
+    <input
+      placeholder="email"
+      class="input"
+      type="email"
+      name="email"
+      formControlName="email"
+    >
+    <input
+      placeholder="Mot de passe"
+      class="input"
+      type="password"
+      name="mot_de_passe"
+      formControlName="mot_de_passe"
+    >
+    <button class="btn" type="submit">Connexion</button>
   </form>
 </div>
 

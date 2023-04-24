@@ -6,7 +6,12 @@ import { PageNotFoundComponent } from "./components/page-not-found/page-not-foun
 const routes: Routes = [
   { path: 'auth', component: AuthComponent },
   { path: '', redirectTo: 'auth', pathMatch: 'full' },
-  { path: '**', component: PageNotFoundComponent }
+  { path: '**', component: PageNotFoundComponent },
+  {
+    path: 'dashboard',
+    loadChildren: ()=>import("./components/dashboard/dashboard.module")
+      .then((m)=>m.DashboardModule)
+  }
 ];
 
 @NgModule({
